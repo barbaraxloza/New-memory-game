@@ -42,10 +42,22 @@ function showQuizQuestion() {
     question.textContent = `What room type is "${room.code}"?`;
     choices.innerHTML = "";
     
-    const shuffledData = roomData.sort(() => 0.5 - Math.random());
-    shuffledData.slice(0, 4).forEach((data) => {
+    // Get a list of descriptions excluding the current correct one
+    const otherDescriptions = roomData
+        .filter(data => data.description !== room.description)
+        .map(data => data.description);
+
+    // Shuffle the other descriptions and select 3
+    const shuffledDescriptions = otherDescriptions.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+    // Insert the correct answer randomly in the choices
+    shuffledDescriptions.push(room.description);
+    const allChoices = shuffledDescriptions.sort(() => 0.5 - Math.random());
+
+    // Create list items for the choices
+    allChoices.forEach((description) => {
         const li = document.createElement('li');
-        li.textContent = data.description;
+        li.textContent = description;
         li.addEventListener('click', () => selectChoice(li));
         choices.appendChild(li);
     });
