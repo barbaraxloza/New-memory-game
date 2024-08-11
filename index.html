@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Code Memory Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Room Code Memory Game</h1>
+        <div id="flashcards" class="card">
+            <h2 id="flashcard-title">Flashcards</h2>
+            <p id="flashcard-content">Click "Next" to start</p>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="quiz" class="card">
+            <h2 id="quiz-title">Quiz</h2>
+            <p id="question">What room type is "RKD"?</p>
+            <ul id="choices">
+                <!-- Choices will be populated by JavaScript -->
+            </ul>
+            <button id="submit-btn">Submit</button>
+        </div>
+
+        <div id="result" class="card">
+            <h2>Result</h2>
+            <p id="result-message">Well done!</p>
+            <button id="retry-btn">Retry</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
